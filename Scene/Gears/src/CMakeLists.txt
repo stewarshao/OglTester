@@ -1,0 +1,34 @@
+FILE(GLOB_RECURSE LIBGEARS_SRC "*.cpp")
+FOREACH(src ${LIBGEARS_SRC}) 
+	MESSAGE( ${src} ) 
+ENDFOREACH() 
+
+ADD_LIBRARY(gears SHARED ${LIBGEARS_SRC})
+
+IF(CMAKE_BUILD_TYPE STREQUAL Release)
+	if(WIN32)
+		SET(LIBRARY_OUTPUT_PATH ${CMAKE_INSTALL_PREFIX}/dso)
+	else()
+		SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib/release)
+		INSTALL(TARGETS gears 
+				LIBRARY DESTINATION dso/Release) 
+	endif()	
+ELSE()
+	if(WIN32)
+		SET(LIBRARY_OUTPUT_PATH ${CMAKE_INSTALL_PREFIX}/dso) 
+	else()
+		SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib/debug)
+		INSTALL(TARGETS gears 
+				LIBRARY DESTINATION dso/Debug) 
+	endif()
+ENDIF()
+
+find_package(OpenGL)
+if (OPENGL_FOUND)
+	MESSAGE("OpenGL Correctly Found")
+	include_directories(${OPENGL_INCLUDE_DIR})
+else (OPENGL_FOUND)
+	MESSAGE("OpenGL environment missing")
+endif()
+
+
