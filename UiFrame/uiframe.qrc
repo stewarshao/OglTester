@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="UiFrame">
+	<file>../Output/images/new.png</file>
+	<file>../Output/images/exit.png</file>
+	<file>../Output/images/about.png</file>
+	<file>../Output/images/transform.png</file>
+	<file>../Output/images/light.png</file>
+	<file>../Output/images/grab.png</file>
+	<file>../Output/images/grabbutton.png</file>
+	<file>../Output/images/refresh.png</file>
+    </qresource>
+</RCC>
