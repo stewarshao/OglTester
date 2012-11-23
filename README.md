@@ -1,5 +1,4 @@
 OglTester
 =========
 
-A OpenGL sample with QT gui
-
+OpenGl sample with a QT framework.
