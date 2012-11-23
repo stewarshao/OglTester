@@ -1,4 +1,4 @@
 OglTester
 =========
 
-a sample
+OpenGl sample with a QT framework.
